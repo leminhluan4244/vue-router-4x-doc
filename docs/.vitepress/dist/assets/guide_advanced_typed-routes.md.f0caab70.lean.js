@@ -1,0 +1,1 @@
+import{_ as e,o as t,p as r,W as a}from"./plugin-vue_export-helper.463a469f.js";const f='{"title":"Typed Routes (v4.1.0+)","description":"","frontmatter":{},"relativePath":"guide/advanced/typed-routes.md","lastUpdated":1665388136080}',o={},n=a("",2),s=[n];function i(p,u,c,d,l,_){return t(),r("div",null,s)}var g=e(o,[["render",i]]);export{f as __pageData,g as default};

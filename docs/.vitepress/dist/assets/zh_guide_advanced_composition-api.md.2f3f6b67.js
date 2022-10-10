@@ -1,0 +1,82 @@
+import{_ as a,N as t,o as p,p as o,H as e,v as n,r as c,W as u}from"./plugin-vue_export-helper.463a469f.js";const g='{"title":"Vue Router \u548C \u7EC4\u5408\u5F0F API","description":"","frontmatter":{},"headers":[{"level":2,"title":"\u5728 setup \u4E2D\u8BBF\u95EE\u8DEF\u7531\u548C\u5F53\u524D\u8DEF\u7531","slug":"\u5728-setup-\u4E2D\u8BBF\u95EE\u8DEF\u7531\u548C\u5F53\u524D\u8DEF\u7531"},{"level":2,"title":"\u5BFC\u822A\u5B88\u536B","slug":"\u5BFC\u822A\u5B88\u536B"},{"level":2,"title":"useLink","slug":"uselink"}],"relativePath":"zh/guide/advanced/composition-api.md","lastUpdated":1665388136096}',l={},r=n("h1",{id:"vue-router-\u548C-\u7EC4\u5408\u5F0F-api",tabindex:"-1"},[c("Vue Router \u548C \u7EC4\u5408\u5F0F API "),n("a",{class:"header-anchor",href:"#vue-router-\u548C-\u7EC4\u5408\u5F0F-api","aria-hidden":"true"},"#")],-1),k=u(`<p>\u5F15\u5165 <code>setup</code> \u548C Vue \u7684<a href="https://v3.vuejs.org/guide/composition-api-introduction.html" target="_blank" rel="noopener noreferrer">\u7EC4\u5408\u5F0F API</a>\uFF0C\u5F00\u8F9F\u4E86\u65B0\u7684\u53EF\u80FD\u6027\uFF0C\u4F46\u8981\u60F3\u5145\u5206\u53D1\u6325 Vue Router \u7684\u6F5C\u529B\uFF0C\u6211\u4EEC\u9700\u8981\u4F7F\u7528\u4E00\u4E9B\u65B0\u7684\u51FD\u6570\u6765\u4EE3\u66FF\u8BBF\u95EE <code>this</code> \u548C\u7EC4\u4EF6\u5185\u5BFC\u822A\u5B88\u536B\u3002</p><h2 id="\u5728-setup-\u4E2D\u8BBF\u95EE\u8DEF\u7531\u548C\u5F53\u524D\u8DEF\u7531" tabindex="-1">\u5728 <code>setup</code> \u4E2D\u8BBF\u95EE\u8DEF\u7531\u548C\u5F53\u524D\u8DEF\u7531 <a class="header-anchor" href="#\u5728-setup-\u4E2D\u8BBF\u95EE\u8DEF\u7531\u548C\u5F53\u524D\u8DEF\u7531" aria-hidden="true">#</a></h2><p>\u56E0\u4E3A\u6211\u4EEC\u5728 <code>setup</code> \u91CC\u9762\u6CA1\u6709\u8BBF\u95EE <code>this</code>\uFF0C\u6240\u4EE5\u6211\u4EEC\u4E0D\u80FD\u518D\u76F4\u63A5\u8BBF\u95EE <code>this.$router</code> \u6216 <code>this.$route</code>\u3002\u4F5C\u4E3A\u66FF\u4EE3\uFF0C\u6211\u4EEC\u4F7F\u7528 <code>useRouter</code> \u51FD\u6570\uFF1A</p><div class="language-js"><pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> useRouter<span class="token punctuation">,</span> useRoute <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;vue-router&#39;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token function">useRouter</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> route <span class="token operator">=</span> <span class="token function">useRoute</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">function</span> <span class="token function">pushWithQuery</span><span class="token punctuation">(</span><span class="token parameter">query</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&#39;search&#39;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">query</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token operator">...</span>route<span class="token punctuation">.</span>query<span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><code>route</code> \u5BF9\u8C61\u662F\u4E00\u4E2A\u54CD\u5E94\u5F0F\u5BF9\u8C61\uFF0C\u6240\u4EE5\u5B83\u7684\u4EFB\u4F55\u5C5E\u6027\u90FD\u53EF\u4EE5\u88AB\u76D1\u542C\uFF0C\u4F46\u4F60\u5E94\u8BE5<strong>\u907F\u514D\u76D1\u542C\u6574\u4E2A <code>route</code></strong> \u5BF9\u8C61\u3002\u5728\u5927\u591A\u6570\u60C5\u51B5\u4E0B\uFF0C\u4F60\u5E94\u8BE5\u76F4\u63A5\u76D1\u542C\u4F60\u671F\u671B\u6539\u53D8\u7684\u53C2\u6570\u3002</p><div class="language-js"><pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> useRoute <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;vue-router&#39;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> ref<span class="token punctuation">,</span> watch <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;vue&#39;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> route <span class="token operator">=</span> <span class="token function">useRoute</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> userData <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// \u5F53\u53C2\u6570\u66F4\u6539\u65F6\u83B7\u53D6\u7528\u6237\u4FE1\u606F</span>
+    <span class="token function">watch</span><span class="token punctuation">(</span>
+      <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> route<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">,</span>
+      <span class="token keyword">async</span> <span class="token parameter">newId</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        userData<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetchUser</span><span class="token punctuation">(</span>newId<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>\u8BF7\u6CE8\u610F\uFF0C\u5728\u6A21\u677F\u4E2D\u6211\u4EEC\u4ECD\u7136\u53EF\u4EE5\u8BBF\u95EE <code>$router</code> \u548C <code>$route</code>\uFF0C\u6240\u4EE5\u4E0D\u9700\u8981\u5728 <code>setup</code> \u4E2D\u8FD4\u56DE <code>router</code> \u6216 <code>route</code>\u3002</p><h2 id="\u5BFC\u822A\u5B88\u536B" tabindex="-1">\u5BFC\u822A\u5B88\u536B <a class="header-anchor" href="#\u5BFC\u822A\u5B88\u536B" aria-hidden="true">#</a></h2><p>\u867D\u7136\u4F60\u4ECD\u7136\u53EF\u4EE5\u901A\u8FC7 <code>setup</code> \u51FD\u6570\u6765\u4F7F\u7528\u7EC4\u4EF6\u5185\u7684\u5BFC\u822A\u5B88\u536B\uFF0C\u4F46 Vue Router \u5C06\u66F4\u65B0\u548C\u79BB\u5F00\u5B88\u536B\u4F5C\u4E3A \u7EC4\u5408\u5F0F API \u51FD\u6570\u516C\u5F00\uFF1A</p><div class="language-js"><pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> onBeforeRouteLeave<span class="token punctuation">,</span> onBeforeRouteUpdate <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;vue-router&#39;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> ref <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;vue&#39;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// \u4E0E beforeRouteLeave \u76F8\u540C\uFF0C\u65E0\u6CD5\u8BBF\u95EE \`this\`</span>
+    <span class="token function">onBeforeRouteLeave</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">to<span class="token punctuation">,</span> <span class="token keyword">from</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> answer <span class="token operator">=</span> window<span class="token punctuation">.</span><span class="token function">confirm</span><span class="token punctuation">(</span>
+        <span class="token string">&#39;Do you really want to leave? you have unsaved changes!&#39;</span>
+      <span class="token punctuation">)</span>
+      <span class="token comment">// \u53D6\u6D88\u5BFC\u822A\u5E76\u505C\u7559\u5728\u540C\u4E00\u9875\u9762\u4E0A</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>answer<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">const</span> userData <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// \u4E0E beforeRouteUpdate \u76F8\u540C\uFF0C\u65E0\u6CD5\u8BBF\u95EE \`this\`</span>
+    <span class="token function">onBeforeRouteUpdate</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">to<span class="token punctuation">,</span> <span class="token keyword">from</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token comment">//\u4EC5\u5F53 id \u66F4\u6539\u65F6\u624D\u83B7\u53D6\u7528\u6237\uFF0C\u4F8B\u5982\u4EC5 query \u6216 hash \u503C\u5DF2\u66F4\u6539</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>to<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id <span class="token operator">!==</span> from<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        userData<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetchUser</span><span class="token punctuation">(</span>to<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>\u7EC4\u5408\u5F0F API \u5B88\u536B\u4E5F\u53EF\u4EE5\u7528\u5728\u4EFB\u4F55\u7531 <code>&lt;router-view&gt;</code> \u6E32\u67D3\u7684\u7EC4\u4EF6\u4E2D\uFF0C\u5B83\u4EEC\u4E0D\u5FC5\u50CF\u7EC4\u4EF6\u5185\u5B88\u536B\u90A3\u6837\u76F4\u63A5\u7528\u5728\u8DEF\u7531\u7EC4\u4EF6\u4E0A\u3002</p><h2 id="uselink" tabindex="-1"><code>useLink</code> <a class="header-anchor" href="#uselink" aria-hidden="true">#</a></h2><p>Vue Router \u5C06 RouterLink \u7684\u5185\u90E8\u884C\u4E3A\u4F5C\u4E3A\u4E00\u4E2A\u7EC4\u5408\u5F0F API \u51FD\u6570\u516C\u5F00\u3002\u5B83\u63D0\u4F9B\u4E86\u4E0E <a href="./../../api/#router-link-s-v-slot"><code>v-slot</code> API</a> \u76F8\u540C\u7684\u8BBF\u95EE\u5C5E\u6027\uFF1A</p><div class="language-js"><pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> RouterLink<span class="token punctuation">,</span> useLink <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;vue-router&#39;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> computed <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;vue&#39;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&#39;AppLink&#39;</span><span class="token punctuation">,</span>
+
+  <span class="token literal-property property">props</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// \u5982\u679C\u4F7F\u7528 TypeScript\uFF0C\u8BF7\u6DFB\u52A0 @ts-ignore</span>
+    <span class="token operator">...</span>RouterLink<span class="token punctuation">.</span>props<span class="token punctuation">,</span>
+    <span class="token literal-property property">inactiveClass</span><span class="token operator">:</span> String<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> route<span class="token punctuation">,</span> href<span class="token punctuation">,</span> isActive<span class="token punctuation">,</span> isExactActive<span class="token punctuation">,</span> navigate <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useLink</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span>
+
+    <span class="token keyword">const</span> isExternalLink <span class="token operator">=</span> <span class="token function">computed</span><span class="token punctuation">(</span>
+      <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">typeof</span> props<span class="token punctuation">.</span>to <span class="token operator">===</span> <span class="token string">&#39;string&#39;</span> <span class="token operator">&amp;&amp;</span> props<span class="token punctuation">.</span>to<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">&#39;http&#39;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> isExternalLink<span class="token punctuation">,</span> href<span class="token punctuation">,</span> navigate<span class="token punctuation">,</span> isActive <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div>`,14);function i(d,f,h,y,m,w){const s=t("VueSchoolLink");return p(),o("div",null,[r,e(s,{href:"https://vueschool.io/lessons/router-and-the-composition-api",title:"Learn how to use Vue Router with the composition API"}),k])}var _=a(l,[["render",i]]);export{g as __pageData,_ as default};

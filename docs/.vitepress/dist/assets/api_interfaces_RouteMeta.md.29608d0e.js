@@ -1,0 +1,9 @@
+import{_ as e,o as a,p as t,W as n}from"./plugin-vue_export-helper.463a469f.js";const k='{"title":"Interface: RouteMeta","description":"","frontmatter":{"sidebar":"auto","editLinks":false,"sidebarDepth":3},"headers":[{"level":2,"title":"Hierarchy","slug":"hierarchy"}],"relativePath":"api/interfaces/RouteMeta.md","lastUpdated":1665388136064}',s={},o=n(`<p><a href="./../">API Documentation</a> / RouteMeta</p><h1 id="interface-routemeta" tabindex="-1">Interface: RouteMeta <a class="header-anchor" href="#interface-routemeta" aria-hidden="true">#</a></h1><p>Interface to type <code>meta</code> fields in route records.</p><p><strong><code>Example</code></strong></p><div class="language-ts"><pre><code><span class="token comment">// typings.d.ts or router.ts</span>
+<span class="token keyword">import</span> <span class="token string">&#39;vue-router&#39;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">declare</span> <span class="token keyword">module</span> <span class="token string">&#39;vue-router&#39;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">interface</span> <span class="token class-name">RouteMeta</span> <span class="token punctuation">{</span>
+    requiresAuth<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span>
+  <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+</code></pre></div><h2 id="hierarchy" tabindex="-1">Hierarchy <a class="header-anchor" href="#hierarchy" aria-hidden="true">#</a></h2><ul><li><p><code>Record</code>&lt;<code>string</code> | <code>number</code> | <code>symbol</code>, <code>unknown</code>&gt;</p><p>\u21B3 <strong><code>RouteMeta</code></strong></p></li></ul>`,7),r=[o];function c(p,d,i,l,u,h){return a(),t("div",null,r)}var f=e(s,[["render",c]]);export{k as __pageData,f as default};
